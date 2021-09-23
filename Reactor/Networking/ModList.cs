@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using BepInEx.IL2CPP;
+using UnityEngine;
 
 namespace Reactor.Networking
 {
@@ -14,6 +15,13 @@ namespace Reactor.Networking
 
         public static Mod GetById(string id)
         {
+            if (!_mapById.ContainsKey(id))
+            {
+                foreach (var key in _mapById.Keys)
+                {
+                    Debug.Log($"GetById: {key}");
+                }
+            }
             return _mapById[id];
         }
 

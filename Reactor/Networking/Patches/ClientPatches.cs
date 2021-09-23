@@ -113,7 +113,7 @@ namespace Reactor.Networking.Patches
                     var coroutine = Coroutines.Start(Coroutine(__instance));
 
                     __instance.Disconnected = Il2CppSystem.Delegate.Combine(
-                        (Il2CppSystem.EventHandler<DisconnectedEventArgs>) (Action<Il2CppSystem.Object, DisconnectedEventArgs>) ((_, _) =>
+                        (Il2CppSystem.EventHandler<DisconnectedEventArgs>) (Action<Il2CppSystem.Object, DisconnectedEventArgs>) ((a, b) =>
                         {
                             Coroutines.Stop(coroutine);
                         }),

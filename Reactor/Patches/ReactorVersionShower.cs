@@ -20,7 +20,7 @@ namespace Reactor.Patches
 
         internal static void Initialize()
         {
-            SceneManager.add_sceneLoaded((Action<Scene, LoadSceneMode>) ((_, _) =>
+            SceneManager.add_sceneLoaded((Action<Scene, LoadSceneMode>) ((a, b) =>
             {
                 var original = UnityEngine.Object.FindObjectOfType<VersionShower>();
                 if (!original)

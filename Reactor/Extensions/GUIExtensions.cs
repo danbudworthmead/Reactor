@@ -19,6 +19,21 @@ namespace Reactor.Extensions
             return new Texture2D(width, height, TextureFormat.RGBA32, Texture.GenerateAllMips, false, IntPtr.Zero);
         }
 
+        public static Texture2D SetColour(this Texture2D texture2D, Color colour)
+        {
+            // Reset all pixels color to transparent
+            Color32 resetColor = colour;
+            Color32[] resetColorArray = texture2D.GetPixels32();
+
+            for (var i = 0; i < resetColorArray.Length; i++) {
+                resetColorArray[i] = resetColor;
+            }
+      
+            texture2D.SetPixels32(resetColorArray);
+            texture2D.Apply();
+            return texture2D;
+        }
+
         /// <summary>
         /// Clamp Rect to screen size
         /// </summary>
